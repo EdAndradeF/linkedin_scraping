@@ -1,5 +1,4 @@
-import main
-
+from LinkedinScraping.ETL import scraping
 
 
 def menu():
@@ -17,7 +16,7 @@ def menu():
 funcao = menu()
 
 if funcao:
-    bot = main.Chrome()
+    bot = scraping.Chrome()
 
     while funcao:
 

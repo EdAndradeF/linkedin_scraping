@@ -8,7 +8,7 @@ import pandas as pd
 
 
 
-env = dotenv.load_dotenv('.env')
+env = dotenv.load_dotenv('../.env')
 
 
 class Chrome:
@@ -17,7 +17,7 @@ class Chrome:
 
         self.site = 'https://www.linkedin.com/'
         print('\n\nOIE!!\n Bora rodar..')
-        self.ser = Service('chromedriver.exe')
+        self.ser = Service('../chromedriver.exe')
         self.option = webdriver.ChromeOptions()
         # self.option.add_argument('--headless')
         self.driver = webdriver.Chrome(service=self.ser,
@@ -39,7 +39,7 @@ class Chrome:
         self.driver.close()
         print('tchau, tchau')
 
-    def conect(self, num=0):
+    def conect(self, num=0, ):
         self.pg = 1+num
         self.driver.get(f'{self.site}search/results/people/?connectionOf=%5B%22ACoAACE0LVQBQqhtxtpGIVdhw-RFHGoCLQ6Z230%22%5D&network=%5B%22F%22%2C%22S%22%5D&origin=MEMBER_PROFILE_CANNED_SEARCH&sid=Frz&page={self.pg}')
         sleep(1.5)
@@ -136,7 +136,9 @@ class Chrome:
     def minhasvagas(self):
         self.driver.get(f'{self.site}my-items/saved-jobs/')
         lista_vagas = self.driver.find_element(By.CLASS_NAME, 'reusable-search__entity-result-list')
-        vagas_id = [link.get_attribute('href').split('/')[5] for link in lista_vagas.find_elements(By.TAG_NAME, 'a')][::2]
+        vagas_id = [link.get_attribute('href').split('/')[5]
+                            for link in lista_vagas.find_elements(By.TAG_NAME, 'a')][::2]
+
         for id in vagas_id:
             self.percode(id)
 
