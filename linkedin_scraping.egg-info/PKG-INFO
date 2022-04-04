@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: linkedin-scraping
+Version: 0.0.1
+Summary: coleta dados de vagas para analise e faz conexeos
+Home-page: my_github_repository_project_link
+Author: edA
+Author-email: edandradef@gmail.com
+License: UNKNOWN
+Description: '#### Conectando com as conexoes do amiguinho' 
+        
+Platform: UNKNOWN
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
